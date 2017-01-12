@@ -24,8 +24,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
-import { SampleModule } from 'ng-dygraphs';
+// Import ng-dygraphs library
+import { NgDygraphsModule } from 'ng-dygraphs';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { SampleModule } from 'ng-dygraphs';
   imports: [
     BrowserModule,
 
-    // Specify your library as an import
-    LibraryModule
+    // Specify NgDygraphsModule library as an import
+    NgDygraphsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -50,7 +50,7 @@ Once your library is imported, you can use its components, directives and pipes 
 <h1>
   {{title}}
 </h1>
-<sampleComponent></sampleComponent>
+<ng-dygraphs></ng-dygraphs>
 ```
 
 ## Development
@@ -58,7 +58,7 @@ Once your library is imported, you can use its components, directives and pipes 
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
 ```bash
-$ npm run tsc
+$ gulp build
 ```
 
 To lint all `*.ts` files:
