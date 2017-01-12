@@ -1,3 +1,5 @@
+WIP:not yet deployed to NPM
+
 # ng-dygraphs
 
 ## Installation
