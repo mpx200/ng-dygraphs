@@ -2,7 +2,7 @@ import { Component, Input, ElementRef, Renderer, OnChanges, ViewChild } from '@a
 declare let Dygraph: any;
 
 @Component({
-    selector: 'ng-dygraph',
+    selector: 'ng-dygraphs',
     templateUrl: 'ng-dygraphs.component.html',
     styleUrls: ['ng-dygraphs.component.css']
 })
