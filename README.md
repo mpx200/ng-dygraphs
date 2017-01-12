@@ -4,20 +4,14 @@ WIP:not yet deployed to NPM
 
 ## Installation
 
-To install this library, run:
+To install ng-dygraphs library, run:
 
 ```bash
 $ npm install ng-dygraphs --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install ng-dygraphs
-```
-
+## Usage
+ 
 and then from your Angular `AppModule`:
 
 ```typescript
@@ -45,7 +39,7 @@ import { NgDygraphsModule } from 'ng-dygraphs';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+Once ng-dygraphs library is imported, you can use ng-dygraphs component in your Angular application:
 
 ```xml
 <!-- You can now use your library component in app.component.html -->
