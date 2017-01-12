@@ -52,7 +52,13 @@ Once your library is imported, you can use its components, directives and pipes 
 <h1>
   {{title}}
 </h1>
-<ng-dygraphs></ng-dygraphs>
+<ng-dygraphs 
+  [data]="data" 
+  [lineNames]="['Value bar 1', 'Value bar 2']" 
+  [ylabel]="Y label text" 
+  [xlabel]="X label text" 
+  [pointSize]="4">
+</ng-dygraphs>
 ```
 
 ## Development
