@@ -22,10 +22,11 @@
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "dygraphs": "^2.0.0"
+  },
   "devDependencies": {
     "@angular/common": "^2.0.0",
-   // "@angular/core": "^2.0.0",
     "@types/gulp": "^3.8.32",
     "@types/gulp-minify-css": "0.0.29",
     "@types/gulp-sass": "0.0.29",
