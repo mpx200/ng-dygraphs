@@ -1,6 +1,25 @@
-WIP:not yet deployed to NPM
-
 # ng-dygraphs
+Angular 2+ library for basic support of dygraphs(http://dygraphs.com) charts
+
+## Supported features of dygraphs (for detailed information look at http://dygraphs.com/options.html)
+
+ ```typescript
+   data //http://dygraphs.com/data.htm
+   xlabel
+   ylabel
+   axes
+   legend   // default value is 'false'
+   pointSize
+```
+
+## Custom features
+ ```typescript
+  lineNames;  //this is the list that will be places in "labels" dygraphs property
+  customVisibility //posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
+  //define size of chart
+  chartWidth: number = 640; // default value is 640
+  chartHeight: number = 480; // default value is 480
+```
 
 ## Installation
 
@@ -51,7 +70,9 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
   [lineNames]="['Value bar 1', 'Value bar 2']" 
   [ylabel]="Y label text" 
   [xlabel]="X label text" 
-  [pointSize]="4">
+  [pointSize]="4"
+  [customVisibility]="true"
+  >
 </ng-dygraphs>
 ```
 
