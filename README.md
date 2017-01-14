@@ -97,12 +97,20 @@ in /tools/config/project.config.ts
 
       }
     });
+      // Add packages (e.g. ng2-translate)
+    let additionalPackages: ExtendPackages[] = [{
+      name: 'ng-dygraphs',
+      // Path to the package's bundle
+      path: 'node_modules/ng-dygraphs/lib/index.js'
+    }];
+    this.addPackagesBundles(additionalPackages);
     
-     this.mergeObject(this.SYSTEM_CONFIG_DEV, {
-      paths: {
-        'ng-dygraphs': 'node_modules/ng-dygraphs/lib/index.js'
-      }
-    });
+   //in older version of seed you may try this code bellow 
+   // this.mergeObject(this.SYSTEM_CONFIG_DEV, {
+   // paths: {
+   //   'ng-dygraphs': 'node_modules/ng-dygraphs/lib/index.js'
+   // }
+   // });
 ```
 
 ## Development
