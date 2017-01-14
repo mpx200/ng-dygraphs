@@ -24,7 +24,12 @@ Angular 2+ library for basic support of dygraphs(http://dygraphs.com) charts
 
 ## Installation
 
-To install ng-dygraphs library, run:
+First install dygraphs library
+
+```bash
+$ npm install dygraphs --save
+```
+then install ng-dygraphs
 
 ```bash
 $ npm install ng-dygraphs --save
