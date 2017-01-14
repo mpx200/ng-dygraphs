@@ -5,17 +5,22 @@ Angular 2+ library for basic support of dygraphs(http://dygraphs.com) charts
 (for detailed information look at http://dygraphs.com/options.html)
 
  ```typescript
-   data //http://dygraphs.com/data.htm
+   data 
+ //data property needs to be  defined in your controller and in native array format http://dygraphs.com/data.html#array
+  //data = [[new Date("2008/05/07"), 75],
+  //        [new Date("2008/05/08"), 70],
+  //        [new Date("2008/05/09"), 80]
+  //       ];
+   labels
    xlabel
    ylabel
    axes
-   legend   // default value is 'false'
+   legend   // default value is 'always'
    pointSize
 ```
 
 ## Custom features
  ```typescript
-  lineNames;  //this is the list that will be places in "labels" dygraphs property
   customVisibility //posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
   //define size of chart
   chartWidth: number = 640; // default value is 640
@@ -78,11 +83,11 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
           [new Date("2008/05/09"), 80]
          ];
 -->
-<ng-dygraphs 
+<ng-dygraphs
   [data]="data"
-  [lineNames]="['Temperature']"
+  [labels]="['Date','Temperature']"
   [ylabel]="'Y label text'"
-  [xlabel]="'Date'"
+  [xlabel]="'X label text'"
   [pointSize]="4">
 </ng-dygraphs>
 ```

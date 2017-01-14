@@ -15,7 +15,7 @@ export class NgDygraphsComponent implements OnChanges {
     @Input() chartWidth: number = 640;
     @Input() chartHeight: number = 480;
     @Input() data: any;
-    @Input() lineNames: string[];
+    @Input() labels: string[];
     @Input() xlabel: string;
     @Input() ylabel: string;
     @Input() axes: any;
@@ -36,14 +36,14 @@ export class NgDygraphsComponent implements OnChanges {
         if (this.data === undefined || this.data.length === 0) {return; };
         this.lodingInProgress = true;
         let initialVisibility: any[] = [];
-        this.lineNames.forEach(a => {
+        this.labels.forEach(a => {
             initialVisibility.push(true);
         });
         setTimeout(() => {
             this.g = new Dygraph(this.chart.nativeElement,
                 this.data,
                 {
-                    labels: [this.xlabel].concat(this.lineNames),
+                    labels: this.labels,
                     ylabel: this.ylabel,
                     xlabel: this.xlabel,
                     legend: this.legend,
@@ -53,7 +53,6 @@ export class NgDygraphsComponent implements OnChanges {
                 }
             );
             this.lodingInProgress = false;
-            console.log(this.lodingInProgress);
         }, 500);
     }
 
