@@ -18,6 +18,8 @@ export class NgDygraphsComponent implements OnChanges {
     @Input() labels: string[];
     @Input() xlabel: string;
     @Input() ylabel: string;
+    @Input() animatedZooms: boolean = false;
+    @Input() title: string = '';
     @Input() axes: any;
     @Input() legend: string = 'always';
     @Input() pointSize: number;
@@ -47,6 +49,8 @@ export class NgDygraphsComponent implements OnChanges {
                     ylabel: this.ylabel,
                     xlabel: this.xlabel,
                     legend: this.legend,
+                    animatedZooms: this.animatedZooms,
+                    title: this.title,
                     visibility: initialVisibility,
                     axes: this.axes,
                     pointSize: this.pointSize
