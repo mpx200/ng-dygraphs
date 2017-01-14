@@ -90,7 +90,9 @@ in /tools/config/project.config.ts
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-     { src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
+     { src: 'dygraphs/index.js', inject: 'libs' }
+     //for version "dygraphs": "1.1.1" use this bellow
+     //{ src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
     ];
     
     this.mergeObject(this.SYSTEM_BUILDER_CONFIG, {
