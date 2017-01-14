@@ -1,7 +1,8 @@
 # ng-dygraphs
 Angular 2+ library for basic support of dygraphs(http://dygraphs.com) charts
 
-## Supported features of dygraphs (for detailed information look at http://dygraphs.com/options.html)
+## Supported features of dygraphs 
+(for detailed information look at http://dygraphs.com/options.html)
 
  ```typescript
    data //http://dygraphs.com/data.htm
@@ -74,6 +75,34 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
   [customVisibility]="true"
   >
 </ng-dygraphs>
+```
+
+## Additional settings to include this library in your angular2+ project
+example of integration with one of most popular angular2 seeds https://github.com/mgechev/angular-seed/
+
+in /tools/config/project.config.ts
+```typescript
+    // Add `NPM` third-party libraries to be injected/bundled.
+    this.NPM_DEPENDENCIES = [
+      ...this.NPM_DEPENDENCIES,
+     { src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
+    ];
+    
+    this.mergeObject(this.SYSTEM_BUILDER_CONFIG, {
+      packages: {
+        'ng-dygraphs' : {
+          main:'lib/index.js',
+          defaultExtension: 'js'
+        }
+
+      }
+    });
+    
+     this.mergeObject(this.SYSTEM_CONFIG_DEV, {
+      paths: {
+        'ng-dygraphs': 'node_modules/ng-dygraphs/lib/index.js'
+      }
+    });
 ```
 
 ## Development
