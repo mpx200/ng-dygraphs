@@ -71,14 +71,19 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
 <h1>
   {{title}}
 </h1>
+<!-- data property needs to be  defined in your controller and in native array format http://dygraphs.com/data.html#array
+  
+  data = [[new Date("2008/05/07"), 75],
+          [new Date("2008/05/08"), 70],
+          [new Date("2008/05/09"), 80]
+         ];
+-->
 <ng-dygraphs 
-  [data]="data" 
-  [lineNames]="['Value bar 1', 'Value bar 2']" 
-  [ylabel]="Y label text" 
-  [xlabel]="X label text" 
-  [pointSize]="4"
-  [customVisibility]="true"
-  >
+  [data]="data"
+  [lineNames]="['Temperature']"
+  [ylabel]="'Y label text'"
+  [xlabel]="'Date'"
+  [pointSize]="4">
 </ng-dygraphs>
 ```
 
@@ -90,9 +95,17 @@ in /tools/config/project.config.ts
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-     { src: 'dygraphs/index.js', inject: 'libs' }
+     { src: 'dygraphs/dist/dygraph.js', inject: 'libs' }
      //for version "dygraphs": "1.1.1" use this bellow
      //{ src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
+    ];
+    
+       // Add `local` third-party libraries to be injected/bundled.
+    this.APP_ASSETS = [
+      ...this.APP_ASSETS,
+      // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
+      // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
+       { src: 'dygraphs/dist/dygraph.css', inject: true, vendor: false }
     ];
     
     this.mergeObject(this.SYSTEM_BUILDER_CONFIG, {
