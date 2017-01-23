@@ -1,6 +1,6 @@
 {
   "name": "ng-dygraphs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "scripts": {
     "build": "gulp build"
   },
@@ -51,7 +51,7 @@
     "rxjs": "^5.0.1",
     "ts-node": "^2.0.0",
     "tslint": "^3.15.1",
-    "typescript": "2.0.2",
+    "typescript": "~2.0.3",
     "zone.js": "^0.7.2"
   },
   "engines": {

@@ -4,13 +4,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "module": "commonjs",
+    "module": "umd",
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
+    "strictNullChecks": true,
     "outDir": "./dist",
     "lib": ["dom", "es6"],
     "stripInternal": true,
+    "skipLibCheck": true,
         "typeRoots": [
       "./node_modules/@types",
       "./node_modules"
@@ -27,5 +29,6 @@
   "exclude": [
     "node_modules",
     "dist"
-  ]
+  ],
+  "angularCompilerOptions": { "strictMetadataEmit": true }
 }

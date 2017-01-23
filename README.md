@@ -96,6 +96,21 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
 </ng-dygraphs>
 ```
 
+## Additional settings to include this library with angular-cli
+
+in angular-cli.json
+```typescript
+    "styles": [
+        "styles.css",
+        "../node_modules/dygraphs/dist/dygraph.css"
+      ],
+      "scripts": [
+       "../node_modules/dygraphs/dist/dygraph.js",
+       "../node_modules/ng-dygraphs/lib/index.js"
+      ],
+```
+
+
 ## Additional settings to include this library in your angular2+ project
 example of integration with one of most popular angular2 seeds https://github.com/mgechev/angular-seed/
 
