@@ -164,6 +164,12 @@ To lint all `*.ts` files:
 $ npm run lint
 ```
 
+## Docker
+
+You can check out Ludwig's docker ng-dygraph with angular-cli integration.
+https://hub.docker.com/r/ludwigprager/ng-dygraph-cli/
+
+
 ## License
 
 MIT © [Ivan Stepić](stepicivan@gmail.com)
