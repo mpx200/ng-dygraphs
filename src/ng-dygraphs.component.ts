@@ -1,5 +1,7 @@
-import { Component, Input, ElementRef, Renderer, OnChanges, ViewChild } from '@angular/core';
-declare let Dygraph: any;
+import { Component, Input, ElementRef, OnInit, OnChanges, ViewChild } from '@angular/core';
+import { DygraphOptions } from './dygraphOptions';
+
+declare const Dygraph: any;
 
 @Component({
   selector: 'ng-dygraphs',
@@ -8,56 +10,54 @@ declare let Dygraph: any;
 })
 /**
  * Wrapper arround Dygraphs
- * 
+ *
  * @class NgDygraphsComponent
  */
-export class NgDygraphsComponent implements OnChanges {
-  @Input() chartWidth: number = 640;
-  @Input() chartHeight: number = 480;
+export class NgDygraphsComponent implements OnInit, OnChanges {
+  @Input() options: DygraphOptions;
   @Input() data: any;
-  @Input() labels: string[];
-  @Input() xlabel: string;
-  @Input() ylabel: string;
-  @Input() animatedZooms: boolean = false;
-  @Input() title: string = '';
-  @Input() axes: any;
-  @Input() legend: string = 'always';
-  @Input() pointSize: number;
-  @Input() customVisibility: boolean = false;
+  @Input() customVisibility: boolean;
   @ViewChild('chart') chart: ElementRef;
-  g: any;
-  loadingInProgress: boolean = true;
-  constructor(private renderer: Renderer) {
+
+  public loadingInProgress = true;
+  public chartWidth: number;
+  public chartHeight: number;
+
+  private _g: any;
+
+  constructor() { }
+
+  ngOnInit() {
+    this.chartWidth = (this.options && this.options.width) || 640;
+    this.chartHeight = (this.options && this.options.height) || 480;
   }
+
   /**
    * ngOnChanges
    * @method ngOnChanges
    * @return {void}
    */
   ngOnChanges() {
-    if (this.data === undefined || this.data.length === 0) { return; };
-    this.loadingInProgress = true;
+    if (!this.data || !this.data.length) { return; };
 
-    let options: any = {};
-    if (this.labels) options.labels = this.labels;
-    if (this.ylabel) options.ylabel = this.ylabel;
-    if (this.xlabel) options.xlabel = this.xlabel;
-    if (this.legend) options.legend = this.legend;
-    if (this.animatedZooms) options.animatedZooms = this.animatedZooms;
-    if (this.title) options.title = this.title;
-    if (this.axes) options.axes = this.axes;
-    if (this.pointSize) options.pointSize = this.pointSize;
+    const options = Object.assign({}, this.options);
 
-    let initialVisibility: any[] = [];
-    if (this.labels) {
-      this.labels.forEach(a => {
+    if (!options.width) { options.width = this.chartWidth; }
+    if (!options.height) { options.height = this.chartHeight; }
+    if (!options.legend) { options.legend = 'always'; }
+
+    const initialVisibility: boolean[] = [];
+    if (options.labels) {
+      options.labels.forEach(_ => {
         initialVisibility.push(true);
       });
     }
-    if (this.labels) options.visibility = initialVisibility;
+    if (options.labels) { options.visibility = initialVisibility; }
+
+    this.loadingInProgress = true;
 
     setTimeout(() => {
-      this.g = new Dygraph(this.chart.nativeElement,
+      this._g = new Dygraph(this.chart.nativeElement,
         this.data,
         options
       );
@@ -66,7 +66,7 @@ export class NgDygraphsComponent implements OnChanges {
   }
 
   changeVisibility(el: any) {
-    let elem = el.currentTarget;
-    this.g.setVisibility(parseInt(elem.id), elem.checked);
+    const elem = el.currentTarget;
+    this._g.setVisibility(parseInt(elem.id, 10), elem.checked);
   }
 }

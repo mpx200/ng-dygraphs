@@ -1,32 +1,29 @@
 # ng-dygraphs
-Angular 2+ library for basic support of dygraphs(http://dygraphs.com) charts
+Angular 2+ library for support of dygraphs(http://dygraphs.com) charts.
 
-## Supported features of dygraphs 
-(for detailed information look at http://dygraphs.com/options.html)
+## Supported features of dygraphs
+Then only thing you will need to pass are `data` and `options` (for detailed information look at http://dygraphs.com/options.html).
 
- ```typescript
-   data 
- //data property needs to be  defined in your controller and in native array format http://dygraphs.com/data.html#array
-  //data = [[new Date("2008/05/07"), 75],
+ ```js
+  data 
+  // data property needs to be defined as attribute in the component and in native array format http://dygraphs.com/data.html#array
+  // data = [[new Date("2008/05/07"), 75],
   //        [new Date("2008/05/08"), 70],
   //        [new Date("2008/05/09"), 80]
   //       ];
-   title
-   labels
-   xlabel
-   ylabel
-   axes
-   animatedZooms
-   legend   // default value is 'always'
-   pointSize
+  options
+  // options object needs to be defined as attribute in the component and consist of valid options http://dygraphs.com/options.html
+  // options = {width: 'auto', labels: ['x','y'], xlabel: 'x', ylabel: 'y', animatedZooms: true, pointSize: 4}
 ```
 
 ## Custom features
- ```typescript
-  customVisibility //posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
-  //define size of chart
-  chartWidth: number = 640; // default value is 640
-  chartHeight: number = 480; // default value is 480
+ ```js
+  // posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
+  customVisibility
+
+  // define size of chart
+  chartWidth // default value is 640
+  chartHeight // default value is 480
 ```
 
 ## Installation
@@ -73,7 +70,7 @@ export class AppModule { }
 
 Once ng-dygraphs library is imported, you can use ng-dygraphs component in your Angular application:
 
-```xml
+```html
 <!-- You can now use your library component in app.component.html -->
 <h1>
   {{title}}
@@ -84,22 +81,19 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
           [new Date("2008/05/08"), 70],
           [new Date("2008/05/09"), 80]
          ];
+  
+  options = {width: 'auto', labels: ['Date','Temperature'], xlabel: 'X label text', ylabel: 'Y label text', title: 'Working title :)', animatedZooms: true, pointSize: 4}
 -->
 <ng-dygraphs
   [data]="data"
-  [labels]="['Date','Temperature']"
-  [ylabel]="'Y label text'"
-  [xlabel]="'X label text'"
-  [animatedZooms] ="true"
-  [title]="'Working title :)'"
-  [pointSize]="4">
+  [options]="options"
 </ng-dygraphs>
 ```
 
 ## Additional settings to include this library with angular-cli
 
 in angular-cli.json
-```typescript
+```json
     "styles": [
         "styles.css",
         "../node_modules/dygraphs/dist/dygraph.css"
@@ -131,7 +125,6 @@ in /tools/config/project.config.ts
           main:'lib/index.js',
           defaultExtension: 'js'
         }
-
       }
     });
       // Add packages (e.g. ng2-translate)
@@ -155,7 +148,7 @@ in /tools/config/project.config.ts
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
 ```bash
-$ gulp build
+$ npm run build
 ```
 
 To lint all `*.ts` files:
