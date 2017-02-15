@@ -1,6 +1,6 @@
 # Node
 node_modules/*
-npm-debug.log
+npm-debug.*
 
 # DO NOT IGNORE TYPESCRIPT FILES FOR NPM
 # TypeScript
@@ -22,3 +22,36 @@ Desktop.ini
 # Mac
 .DS_Store
 **/.DS_Store
+
+# NPM
+.npmignore
+
+# VSCode
+.vscode
+.vscode/*
+debug.*
+
+# Git
+.gitignore
+.gitattributes
+
+# CI Services
+.travis.yml
+.appveyor.yml
+appveyor.yml
+
+# Linters
+.eslintrc
+.eslintrc.json
+.eslintrc.yml
+tslint.json
+
+# Task Runners
+gulpfile.js
+gulpfile.ts
+gruntfile.js
+gruntfile.ts
+
+# TypeScript
+tsconfig.json
+typings.json

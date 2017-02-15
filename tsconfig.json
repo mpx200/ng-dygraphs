@@ -7,6 +7,8 @@
     "module": "umd",
     "moduleResolution": "node",
     "removeComments": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "sourceMap": true,
     "strictNullChecks": true,
     "outDir": "./dist",
@@ -22,7 +24,6 @@
     ]
   },
   "files": [
-    "typings/index.d.ts",
     "src/**/*.ts",
     "index.ts"
   ],

@@ -7,20 +7,20 @@ let gulp = require('gulp'),
     embedTemplates = require('gulp-inline-ng2-template'),
     clean = require('gulp-clean');
 
-//----
-//build steps
-gulp.task('build', function (done) {
-    runSequence('clean', 'compile-typings');
+// ----
+// build steps
+gulp.task('build', function () {
+    runSequence('clean', 'compile-typescript');
 });
-//----
-//clearing the output dir
-gulp.task('clean', function (done) {
+// ----
+// clearing the output dir
+gulp.task('clean', function () {
     return gulp.src('lib', { read: false })
         .pipe(clean());
 });
- 
-//----
-//Sass compilation and minifiction
+
+// ----
+// Sass compilation and minifiction
 gulp.task('compile-sass', function () {
     gulp.src('src/**/*.scss')
         .pipe(sass().on('error', sass.logError)) // this will prevent our future watch-task from crashing on sass-errors
@@ -29,10 +29,10 @@ gulp.task('compile-sass', function () {
             return file.base; // because of Angular 2's encapsulation, it's natural to save the css where the scss-file was
         }));
 });
-//----
-//typescript compilation including sourcemaps and template embedding
-gulp.task('compile-typings', function () {
-    //loading typings file
+// ----
+// typescript compilation including sourcemaps and template embedding
+gulp.task('compile-typescript', function () {
+    // loading typings file
     let tsProject = tsc.createProject('tsconfig.json');
     return tsProject.src()
         .pipe(embedTemplates({
