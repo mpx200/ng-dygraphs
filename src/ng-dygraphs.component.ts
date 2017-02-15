@@ -22,6 +22,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
   public loadingInProgress = true;
   public chartWidth: number;
   public chartHeight: number;
+  public labels: string[];
 
   private _g: any;
 
@@ -48,6 +49,11 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
 
     const initialVisibility: boolean[] = [];
     if (options.labels) {
+      if (this.customVisibility && options.labels.length > 1) {
+        // options.labels[0] is always X axis
+        this.labels = options.labels.slice(1);
+      }
+
       options.labels.forEach(_ => {
         initialVisibility.push(true);
       });
