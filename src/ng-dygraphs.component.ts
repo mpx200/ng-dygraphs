@@ -19,7 +19,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
   @Input() customVisibility: boolean;
   @ViewChild('chart') chart: ElementRef;
 
-  public loadingInProgress = true;
+  public loadingInProgress: boolean;
   public chartWidth: number;
   public chartHeight: number;
   public labels: string[];
@@ -39,7 +39,12 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
    * @return {void}
    */
   ngOnChanges() {
-    if (!this.data || !this.data.length) { return; };
+    if (!this.data || !this.data.length) {
+      this.loadingInProgress = false;
+      return;
+    };
+
+    this.loadingInProgress = true;
 
     const options = Object.assign({}, this.options);
 
@@ -59,8 +64,6 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
       });
     }
     if (options.labels) { options.visibility = initialVisibility; }
-
-    this.loadingInProgress = true;
 
     setTimeout(() => {
       this._g = new Dygraph(this.chart.nativeElement,
