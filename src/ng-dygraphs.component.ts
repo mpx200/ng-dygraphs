@@ -17,7 +17,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
   @Input() options: DygraphOptions;
   @Input() data: any;
   @Input() customVisibility: boolean;
-  @Input() noDataLabel = 'NO DATA AVAILABLE';
+  @Input() noDataLabel: string;
   @ViewChild('chart') chart: ElementRef;
 
   public loadingInProgress: boolean;
@@ -30,6 +30,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
+    this.noDataLabel =  this.noDataLabel  || 'NO DATA AVAILABLE';
     this.chartWidth = (this.options && this.options.width) || 640;
     this.chartHeight = (this.options && this.options.height) || 480;
   }
