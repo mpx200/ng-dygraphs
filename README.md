@@ -24,6 +24,10 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
   // define size of chart
   chartWidth // default value is 640
   chartHeight // default value is 480
+
+  // define custom message when there is no data
+  noDataLabel // default value is 'NO DATA AVAILABLE'
+  
 ```
 
 ## Installation

@@ -17,6 +17,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
   @Input() options: DygraphOptions;
   @Input() data: any;
   @Input() customVisibility: boolean;
+  @Input() noDataLabel = 'NO DATA AVAILABLE';
   @ViewChild('chart') chart: ElementRef;
 
   public loadingInProgress: boolean;

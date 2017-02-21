@@ -29,11 +29,13 @@
      -webkit-box-align: center;
         -ms-flex-align: center;
            align-items: center; }
-    .ng-dygraphs .ng-dygraphs-chart-container .nodata::before {
-      content: 'NO DATA AVAILABLE';
+    .ng-dygraphs .ng-dygraphs-chart-container .nodata {
       color: #5c5c5c;
       font-weight: bold;
-      font-size: 24px; }
+      font-size: 24px; 
+      display: flex;
+      align-content: center;
+      }
   .ng-dygraphs .loader-holder {
     position: absolute;
     display: -webkit-flex;

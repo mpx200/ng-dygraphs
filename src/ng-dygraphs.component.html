@@ -12,6 +12,8 @@
     </div>
     <div class="ng-dygraphs-chart-container">
         <div *ngIf="data?.length" #chart [style.width.px]="chartWidth" [style.height.px]="chartHeight"></div>
-        <div *ngIf="!data?.length" class="nodata" [style.width.px]="chartWidth" [style.height.px]="chartHeight"></div>
+        <div *ngIf="!data?.length" class="nodata" [style.width.px]="chartWidth" [style.height.px]="chartHeight">
+          {{noDataLabel}}
+        </div>
     </div>
 </div>
