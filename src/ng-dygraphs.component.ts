@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, OnChanges, ViewChild } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnChanges, ViewChild, SimpleChanges } from '@angular/core';
 import { DygraphOptions } from './dygraphOptions';
 
 declare const Dygraph: any;
@@ -40,7 +40,12 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
    * @method ngOnChanges
    * @return {void}
    */
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+
+    if (!changes) {
+      return;
+    }
+
     if (!this.data || !this.data.length) {
       this.loadingInProgress = false;
       return;
