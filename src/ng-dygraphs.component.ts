@@ -14,11 +14,11 @@ declare const Dygraph: any;
  * @class NgDygraphsComponent
  */
 export class NgDygraphsComponent implements OnInit, OnChanges {
-  @Input() options: DygraphOptions;
-  @Input() data: any;
-  @Input() customVisibility: boolean;
-  @Input() noDataLabel: string;
-  @ViewChild('chart') chart: ElementRef;
+  @Input() public options: DygraphOptions;
+  @Input() public data: any;
+  @Input() public customVisibility: boolean;
+  @Input() public noDataLabel: string;
+  @ViewChild('chart') public chart: ElementRef;
 
   public loadingInProgress: boolean;
   public chartWidth: number;
@@ -27,9 +27,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
 
   private _g: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  public ngOnInit() {
     this.noDataLabel =  this.noDataLabel  || 'NO DATA AVAILABLE';
     this.chartWidth = (this.options && this.options.width) || 640;
     this.chartHeight = (this.options && this.options.height) || 480;
@@ -40,7 +38,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
    * @method ngOnChanges
    * @return {void}
    */
-  ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges) {
 
     if (!changes) {
       return;
@@ -49,7 +47,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
     if (!this.data || !this.data.length) {
       this.loadingInProgress = false;
       return;
-    };
+    }
 
     this.loadingInProgress = true;
 
@@ -66,7 +64,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
         this.labels = options.labels.slice(1);
       }
 
-      options.labels.forEach(_ => {
+      options.labels.forEach((_) => {
         initialVisibility.push(true);
       });
     }
@@ -81,7 +79,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
     }, 500);
   }
 
-  changeVisibility(el: any) {
+  public changeVisibility(el: any) {
     const elem = el.currentTarget;
     this._g.setVisibility(parseInt(elem.id, 10), elem.checked);
   }
