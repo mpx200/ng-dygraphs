@@ -1,6 +1,6 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {NgDygraphsComponent} from './src/ng-dygraphs.component';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgDygraphsComponent } from './src/ng-dygraphs.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import {NgDygraphsComponent} from './src/ng-dygraphs.component';
   ]
 })
 export class NgDygraphsModule {
-  static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgDygraphsModule
     };
