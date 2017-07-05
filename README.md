@@ -1,6 +1,8 @@
 # ng-dygraphs
 Angular 2+ and 4+ library for support of dygraphs(http://dygraphs.com) charts.
 
+https://travis-ci.org/mpx200/ng-dygraphs.svg?branch=master
+
 ## Supported features of dygraphs
 Then only thing you will need to pass are `data` and `options` (for detailed information look at http://dygraphs.com/options.html).
 
