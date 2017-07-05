@@ -1,6 +1,6 @@
 {
   "name": "ng-dygraphs",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "scripts": {
     "build": "npm run lint && gulp build",
     "lint": "tslint ./*.ts src/**/*.ts"
@@ -16,6 +16,7 @@
   "keywords": [
     "angular",
     "angular2",
+    "angular4",
     "ng",
     "ng2",
     "dygraphs"
@@ -30,9 +31,9 @@
     "dygraphs": "^2.0.0"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/compiler": "^2.0.0",
-    "@angular/core": "^2.0.0",
+    "@angular/common": "^4.2.5",
+    "@angular/compiler": "^4.2.5",
+    "@angular/core": "^4.2.5",
     "@types/gulp": "^3.8.32",
     "@types/gulp-minify-css": "0.0.29",
     "@types/gulp-sass": "0.0.29",
@@ -54,11 +55,11 @@
     "gulp-util": "^3.0.8",
     "rimraf": "^2.5.4",
     "run-sequence": "^1.2.2",
-    "rxjs": "^5.0.1",
-    "ts-node": "^2.0.0",
+    "rxjs": "^5.4.1",
+    "ts-node": "^3.1.0",
     "tslint": "^4.3.0",
-    "typescript": "~2.0.3",
-    "zone.js": "^0.7.2"
+    "typescript": "^2.3.4",
+    "zone.js": "^0.8.12"
   },
   "engines": {
     "node": ">=0.8.0"
