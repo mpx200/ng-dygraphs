@@ -11,25 +11,20 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "outDir": "./dist",
-    "lib": ["dom", "es6"],
-    "stripInternal": true,
-    "skipLibCheck": true,
-        "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules"
+    "outDir": "./lib",
+    "lib": [
+      "dom",
+      "es6"
     ],
-    "types": [
-      "node"
-    ]
+    "rootDir": ".",
+    "stripInternal": true,
+    "skipLibCheck": true    
   },
-  "files": [
-    "src/**/*.ts",
-    "index.ts"
+  "include": [
+    "index.ts",
+    "src/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "angularCompilerOptions": { "strictMetadataEmit": true }
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }
