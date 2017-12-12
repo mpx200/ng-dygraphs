@@ -1,6 +1,6 @@
 {
   "name": "ng-dygraphs",
-  "version": "0.3.6",
+  "version": "0.3.8",
   "scripts": {
     "prebuild": "npm run lint",
     "build": "tsc",
