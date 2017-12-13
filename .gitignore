@@ -3,9 +3,9 @@ node_modules/*
 npm-debug.log
 
 # TypeScript
-*.js
-*.map
-*.d.ts
+# *.js
+# *.map
+# *.d.ts
 
 # JetBrains
 .idea
@@ -22,5 +22,5 @@ Desktop.ini
 .DS_Store
 **/.DS_Store
 
-dist
+lib
 .vscode

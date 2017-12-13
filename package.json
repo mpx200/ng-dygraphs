@@ -3,7 +3,7 @@
   "version": "0.3.8",
   "scripts": {
     "prebuild": "npm run lint",
-    "build": "tsc",
+    "build": "ngc -p tsconfig.json",
     "prelint": "rimraf ./lib",
     "lint": "tslint --project tsconfig.json"
   },
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@angular/common": "^4.2.5",
     "@angular/compiler": "^4.2.5",
+    "@angular/compiler-cli": "^4.2.5",
     "@angular/core": "^4.2.5",
     "@types/node": "^7.0.0",
     "codelyzer": "^2.0.0",
