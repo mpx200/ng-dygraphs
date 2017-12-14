@@ -1,13 +1,15 @@
 # ng-dygraphs
-Angular 2+ and 4+ library for support of dygraphs(http://dygraphs.com) charts.
+
+Angular 2+ and 4+ library for support of dygraphs(<http://dygraphs.com>) charts.
 
 [![Build Status](https://travis-ci.org/mpx200/ng-dygraphs.svg?branch=master)](https://travis-ci.org/mpx200/ng-dygraphs)
 
 ## Supported features of dygraphs
-Then only thing you will need to pass are `data` and `options` (for detailed information look at http://dygraphs.com/options.html).
+
+Then only thing you will need to pass are `data` and `options` (for detailed information look at <http://dygraphs.com/options.html>).
 
  ```js
-  data 
+  data
   // data property needs to be defined as attribute in the component and in native array format http://dygraphs.com/data.html#array
   // data = [[new Date("2008/05/07"), 75],
   //        [new Date("2008/05/08"), 70],
@@ -16,9 +18,11 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
   options
   // options object needs to be defined as attribute in the component and consist of valid options http://dygraphs.com/options.html
   // options = {width: 'auto', labels: ['x','y'], xlabel: 'x', ylabel: 'y', animatedZooms: true, pointSize: 4}
+
 ```
 
 ## Custom features
+
  ```js
   // posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
   customVisibility
@@ -29,7 +33,6 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
 
   // define custom message when there is no data
   noDataLabel // default value is 'NO DATA AVAILABLE'
-  
 ```
 
 ## Installation
@@ -37,16 +40,17 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
 First install dygraphs library
 
 ```bash
-$ npm install dygraphs --save
+npm install dygraphs --save
 ```
+
 then install ng-dygraphs
 
 ```bash
-$ npm install ng-dygraphs --save
+npm install ng-dygraphs --save
 ```
 
 ## Usage
- 
+
 and then from your Angular `AppModule`:
 
 ```typescript
@@ -92,29 +96,39 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
 -->
 <ng-dygraphs
   [data]="data"
-  [options]="options"
+  [options]="options">
 </ng-dygraphs>
 ```
 
 ## Additional settings to include this library with angular-cli
 
 in angular-cli.json
+
 ```json
     "styles": [
         "styles.css",
         "../node_modules/dygraphs/dist/dygraph.css"
       ],
       "scripts": [
-       "../node_modules/dygraphs/dist/dygraph.js",
-       "../node_modules/ng-dygraphs/lib/index.js"
+       "../node_modules/dygraphs/dist/dygraph.js"
       ],
 ```
 
+and in `tsconfig.json`
+
+```json
+"include" : [
+    "src/**/*",
+    "node_modules/ng-dygraphs/index.ts"
+  ]
+```
 
 ## Additional settings to include this library in your angular2+ project
-example of integration with one of most popular angular2 seeds https://github.com/mgechev/angular-seed/
+
+example of integration with one of most popular angular2 seeds <https://github.com/mgechev/angular-seed/>
 
 in /tools/config/project.config.ts
+
 ```typescript
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
@@ -124,7 +138,7 @@ in /tools/config/project.config.ts
      //{ src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
       { src: 'dygraphs/dist/dygraph.css', inject: true, vendor: true }
     ];
-    
+
     this.mergeObject(this.SYSTEM_BUILDER_CONFIG, {
       packages: {
         'ng-dygraphs' : {
@@ -134,14 +148,14 @@ in /tools/config/project.config.ts
       }
     });
       // Add packages (e.g. ng2-translate)
-    let additionalPackages: ExtendPackages[] = [{
+    const additionalPackages: ExtendPackages[] = [{
       name: 'ng-dygraphs',
       // Path to the package's bundle
       path: 'node_modules/ng-dygraphs/lib/index.js'
     }];
     this.addPackagesBundles(additionalPackages);
-    
-   //in older version of seed you may try this code bellow 
+
+   //in older version of seed you may try this code bellow
    // this.mergeObject(this.SYSTEM_CONFIG_DEV, {
    // paths: {
    //   'ng-dygraphs': 'node_modules/ng-dygraphs/lib/index.js'
@@ -151,23 +165,22 @@ in /tools/config/project.config.ts
 
 ## Development
 
-To generate all `*.js`, `*.js.map` and `*.d.ts` files:
+To build the module:
 
 ```bash
-$ npm run build
+npm run build
 ```
 
 To lint all `*.ts` files:
 
 ```bash
-$ npm run lint
+npm run lint
 ```
 
 ## Docker
 
 You can check out Ludwig's docker ng-dygraph with angular-cli integration.
-https://hub.docker.com/r/ludwigprager/ng-dygraph-cli/
-
+<https://hub.docker.com/r/ludwigprager/ng-dygraph-cli/>
 
 ## License
 
