@@ -27,7 +27,6 @@
   "bugs": {
     "url": "https://github.com/mpx200/ng-dygraphs/issues"
   },
-  "main": "./lib/index.js",
   "dependencies": {
     "dygraphs": "^2.0.0"
   },
