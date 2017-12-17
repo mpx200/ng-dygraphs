@@ -1,12 +1,7 @@
 {
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ng-dygraphs",
   "version": "0.3.9",
-  "scripts": {
-    "prebuild": "npm run lint",
-    "build": "ngc -p tsconfig.json",
-    "prelint": "rimraf ./lib",
-    "lint": "tslint --project tsconfig.json"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mpx200/ng-dygraphs"
@@ -28,23 +23,34 @@
     "url": "https://github.com/mpx200/ng-dygraphs/issues"
   },
   "dependencies": {
-    "dygraphs": "^2.0.0"
+    "dygraphs": "^2.1.0"
   },
   "devDependencies": {
-    "@angular/common": "^4.2.5",
-    "@angular/compiler": "^4.2.5",
-    "@angular/compiler-cli": "^4.2.5",
-    "@angular/core": "^4.2.5",
-    "@types/node": "^7.0.0",
-    "codelyzer": "^2.0.0",
-    "rimraf": "^2.5.4",
-    "rxjs": "^5.4.1",
-    "ts-node": "~3.1.0",
-    "tslint": "~4.3.0",
-    "typescript": "~2.3.4",
-    "zone.js": "^0.8.12"
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "codelyzer": "^4.0.1",
+    "ng-packagr": "^1.6.0",
+    "rxjs": "^5.5.2",
+    "tslint": "~5.7.0",
+    "typescript": "~2.4.2",
+    "zone.js": "^0.8.14"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=6.9.0",
+    "npm": ">=3.0.0",
+    "@angular/cli": ">=1.6.1"
+  },
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "prebuild": "npm run lint",
+    "build": "ng-packagr"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
   }
 }

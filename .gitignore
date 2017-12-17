@@ -1,6 +1,6 @@
 # Node
-node_modules/*
-npm-debug.log
+**/node_modules/*
+**/npm-debug.log
 
 # TypeScript
 # *.js
@@ -22,5 +22,5 @@ Desktop.ini
 .DS_Store
 **/.DS_Store
 
-lib
+dist
 .vscode

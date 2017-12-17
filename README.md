@@ -24,8 +24,8 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
 ## Custom features
 
  ```js
-  // posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html, default value is 'false'
-  customVisibility
+  // posibility to turn on/off some of chart values http://dygraphs.com/tests/visibility.html
+  customVisibility // default value is 'false'
 
   // define size of chart
   chartWidth // default value is 640
@@ -37,17 +37,13 @@ Then only thing you will need to pass are `data` and `options` (for detailed inf
 
 ## Installation
 
-First install dygraphs library
-
-```bash
-npm install dygraphs --save
-```
-
-then install ng-dygraphs
+To install `ng-dygraphs` use
 
 ```bash
 npm install ng-dygraphs --save
 ```
+
+`dygraphs` is a dependency and should be installed along with the module.
 
 ## Usage
 
@@ -105,22 +101,13 @@ Once ng-dygraphs library is imported, you can use ng-dygraphs component in your 
 in angular-cli.json
 
 ```json
-    "styles": [
+      "styles": [
         "styles.css",
-        "../node_modules/dygraphs/dist/dygraph.css"
+        "../node_modules/dygraphs/dist/dygraph.min.css"
       ],
       "scripts": [
-       "../node_modules/dygraphs/dist/dygraph.js"
+       "../node_modules/dygraphs/dist/dygraph.min.js"
       ],
-```
-
-and in `tsconfig.json`
-
-```json
-"include" : [
-    "src/**/*",
-    "node_modules/ng-dygraphs/index.ts"
-  ]
 ```
 
 ## Additional settings to include this library in your angular2+ project
@@ -133,10 +120,10 @@ in /tools/config/project.config.ts
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-     { src: 'dygraphs/dist/dygraph.js', inject: 'libs' },
+     { src: 'dygraphs/dist/dygraph.min.js', inject: 'libs' },
      //for version "dygraphs": "1.1.1" use this bellow
      //{ src: 'dygraphs/dygraph-combined.js', inject: 'libs' },
-      { src: 'dygraphs/dist/dygraph.css', inject: true, vendor: true }
+      { src: 'dygraphs/dist/dygraph.min.css', inject: true, vendor: true }
     ];
 
     this.mergeObject(this.SYSTEM_BUILDER_CONFIG, {
@@ -155,7 +142,7 @@ in /tools/config/project.config.ts
     }];
     this.addPackagesBundles(additionalPackages);
 
-   //in older version of seed you may try this code bellow
+   // in older version of seed you may try this code bellow
    // this.mergeObject(this.SYSTEM_CONFIG_DEV, {
    // paths: {
    //   'ng-dygraphs': 'node_modules/ng-dygraphs/lib/index.js'
