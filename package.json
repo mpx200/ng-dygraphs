@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ng-dygraphs",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mpx200/ng-dygraphs"
