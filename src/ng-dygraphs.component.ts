@@ -71,6 +71,7 @@ export class NgDygraphsComponent implements OnInit, OnChanges {
     if (options.labels) { options.visibility = initialVisibility; }
 
     setTimeout(() => {
+      if (this._g) { this._g.destroy(); }
       this._g = new Dygraph(this.chart.nativeElement,
         this.data,
         options
